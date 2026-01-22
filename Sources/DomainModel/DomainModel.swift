@@ -115,6 +115,34 @@ public class Job {
 // Person
 //
 public class Person {
+    var firstName: String
+    var lastName: String
+    var age: Int
+    
+    var job: Job? {
+        didSet {
+            if age < 16 {
+                job = nil
+            }
+        }
+    }
+    var spouse: Person? {
+        didSet {
+            if age < 18 {
+                spouse = nil
+            }
+        }
+    }
+    
+    init (firstName: String, lastName: String, age: Int) {
+        self.firstName = firstName
+        self.lastName = lastName
+        self.age = age
+    }
+    
+    func toString() -> String {
+        return "[Person: firstName:\(firstName) lastName:\(lastName) age:\(age) job:\(job?.title ?? "nil") spouse:\(spouse?.firstName ?? "nil")]"
+    }
 }
 
 ////////////////////////////////////
