@@ -88,10 +88,10 @@ public class Job {
     
     func raise(byAmount amount: Double) {
         switch self.type {
-        case .Hourly(var wage):
+        case .Hourly(let wage):
             let newWage = wage + amount
             self.type = .Hourly(newWage)
-        case .Salary(var salary):
+        case .Salary(let salary):
             let newSalary = Double(salary) + amount
             self.type = .Salary(Int(newSalary))
         }
@@ -99,10 +99,10 @@ public class Job {
     
     func raise(byPercent percent: Double) {
         switch self.type {
-        case .Hourly(var wage):
+        case .Hourly(let wage):
             let newWage = wage * (1 + percent)
             self.type = .Hourly(newWage)
-        case .Salary(var salary):
+        case .Salary(let salary):
             let newSalary = Double(salary) * (1 + percent)
             self.type = .Salary(Int(newSalary))
         }
