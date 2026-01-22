@@ -47,7 +47,7 @@ public struct Money {
         return Money(amount: finalAmount, currency: currencyName)
     }
 
-    func add ( other: Money) -> Money {
+    func add (_ other: Money) -> Money {
         let convertedSelf = self.convert(other.currency)
         let newAmount = convertedSelf.amount + other.amount
         return Money(amount: newAmount, currency: convertedSelf.currency)
